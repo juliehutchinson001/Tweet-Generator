@@ -1,8 +1,16 @@
-def reverse_sentences(sentence):
-    sentence_len = len(sentence) - 1
-    for word_index in range(0:sentence_len)
+def reverse_sentences(sentence: str) -> str:
+    
+    sentence_arr = sentence.split()
+    sentence_len = len(sentence_arr) - 1
 
-def string_reversal(words):
+    reversed_sentence = ""
+    for word_index in range(sentence_len, -1, -1):
+        reversed_sentence += ' ' + sentence_arr[word_index] + ' '
+
+    return reversed_sentence.strip()
+
+
+def string_reversal(words: str) -> str:
     reversed_chars = ""
     reversed_chars += words[::-1]
     return reversed_chars
