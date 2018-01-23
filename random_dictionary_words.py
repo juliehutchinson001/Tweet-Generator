@@ -1,12 +1,12 @@
-from helper_dictionary import main
+from helper_dictionary import get_words
 import random
 import sys
 
 #accessing the list of words as string
-str_dictionary_words = main()
+helper_dictionary_words = get_words()
 
 #splitting the list of words by new line to create an array
-arr_dictionary_words = str_dictionary_words.split('\n')
+arr_dictionary_words = helper_dictionary_words.split('\n')
 
 #finding the length of the words array --347k aprox.
 len_arr_dictionary = len(arr_dictionary_words) - 1
@@ -27,9 +27,9 @@ while len(arr_rand_indexes) != words_num:
     if rand_int not in arr_rand_indexes:
         #append the random #s to array of indexes
         arr_rand_indexes.append(rand_int)
-    else:
-        # same_index_picked += 1 # Chances of getting a repeated random index
-        continue
+    # else:
+    #     # same_index_picked += 1 # Chances of getting a repeated random index
+    #     continue
 
 
 #using the random indexes, select the newly random words
@@ -41,4 +41,4 @@ for dic_words_index in arr_rand_indexes:
 # print(same_index_picked)
 # print("words_num: ", words_num)
 # print("arr_rand_indexes: ", arr_rand_indexes)
-# print("random words: ", str_words)
+print("random words: ", str_words)
