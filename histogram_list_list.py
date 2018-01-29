@@ -14,55 +14,29 @@ word appears in a text. For example, when given the word "mystery" and the Holme
 return the integer 20.
 '''
 
-def histogram(str_words: str) -> list:
-    #TODO: initialize my variables
+#histogram function counts the freq of words from the sample text
+def histogram(str_words):
+    # initialize my variables
     subarr_key_value = []
 
-    #TODO: receive a string and split it to create an array
-    arr_words = str_words.split()
+    # receive a string and split it to create an array
+    #arr_words = str_words.split()
 
-    #TODO: iterate array
-    for word_indexed in arr_words:
-        #TODO: condition plus one each repeated word
-        if word_indexed in subarr_key_value:
-            #TODO: add new word to list
-            subarr_key_value.index(word_indexed)[1] += 1
-        else:
-            #TODO: increment counter for words that already exist
-            subarr_key_value.append([word_indexed,0])
-            
-    #TODO: call unique_words function to count the total unique words
+    # iterate array
+    for word_indexed in str_words:
+        #condition plus one each repeated word
+        ctr_word = str_words.count(word_indexed)
+        if [word_indexed, ctr_word] not in subarr_key_value:
+            # add new word to list
+            subarr_key_value.append([word_indexed, ctr_word])
+        
+    # call unique_words function to count the total unique words
     print(unique_words(subarr_key_value))
 
-    #return dictionary
-    return dict_histogram
+    #return the histogram
+    return subarr_key_value
 
 
-def unique_words(subarr_key_value: list) -> int:
-    #counter tracker for unique words
-    count_values = 0
-
-    #loop the content of the dictionary
-    for key, value in d_histogram.items():
-        #condition the values of histogram to obtain non-repeating ones
-        if value == 1:
-            count_values += value
-            
-    #print(count_values)
-    
-    return count_values
-
-def frequency(find_word: str, wrd_histogram: dict) -> int:
-    count_find_word = 0
-
-    #loop the content of the dictionary to find_word as a dict key
-    for key, value in wrd_histogram.items():
-        #search the keyword within the histogram dictionary
-        if key == find_word:
-            #assign value of the found key word to the count_find_word
-            count_find_word = value
-    
-    return count_find_word
 
 def main():
     #sample string
