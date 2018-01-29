@@ -36,6 +36,12 @@ def histogram(str_words):
     #return the histogram
     return subarr_key_value
 
+#this function gets a key: [string, ] value: [ , int] pair
+def unique_words(subarr_key_value):
+    #this returns an integer of the length of types
+    return len(subarr_key_value)
+
+
 
 
 def main():
