@@ -41,7 +41,15 @@ def unique_words(subarr_key_value):
     #this returns an integer of the length of types
     return len(subarr_key_value)
 
-
+def frequency(word_indexed, subarr_key_value):
+    #loop the content of array
+    for key, value in enumerate(subarr_key_value):
+        #search the keyword within the histogram
+        if word_indexed in value:
+            #assign value of the found key word to the find_word_index
+            find_word_index = key
+    
+    return subarr_key_value[find_word_index][1]
 
 
 def main():
@@ -51,10 +59,10 @@ def main():
     #calling function histogram with sample string
     main_functionality = histogram(str_words)
 
-    #calling function frequency with histogram output as dict argument
-    histogram_freq = frequency('fish', main_functionality)
+    #calling function unique_words with histogram output as argument
+    unique_words(main_functionality)
     
-    print(histogram_freq)
+    print(main_functionality)
 
 if __name__ == "__main__":
     main()
