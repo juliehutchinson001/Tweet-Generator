@@ -12,7 +12,6 @@ class Linked_list(object):
     def __init__(self, items=None):
         self.head = None  # First node
         self.tail = None  # Last node
-        # Append given items
         if items is not None:
             for item in items:
                 self.append(item)
@@ -29,7 +28,7 @@ class Linked_list(object):
 
         node = self.head  
 
-        while node is not None: 
+        while node != None: 
 
             items.append(node.data)
 
@@ -47,13 +46,12 @@ class Linked_list(object):
         if self.is_empty():
             return 0
         current_node = self.head
-        count = 1
+        ctr = 1
         while current_node.next != None:
-            count += 1
+            ctr += 1
             current_node = current_node.next
-        return count
+        return ctr
  
-
     def append(self, item):
         new_node = Node(item)
         if self.is_empty():
