@@ -78,11 +78,19 @@ class Linked_list(object):
     def find(self, state_qual):
         current_node = self.head
 
-        while current_node.data != state_qual:
+        # while current_node.data != state_qual:
+        #     current_node = current_node.next
+        #     if current_node is None:
+        #         return None
+        # return current_node.data
+        # Implementing find with callback (state_qual)
+        while current_node is not None:
+            if state_qual(current_node.data):
+                return current_node.data
+            
             current_node = current_node.next
-            if current_node is None:
-                return None
-        return current_node.data
+
+        return None
 
     def delete(self, item):
         if self.is_empty():
