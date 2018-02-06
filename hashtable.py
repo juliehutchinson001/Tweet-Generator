@@ -58,8 +58,6 @@ class HashTable(object):
     def length(self):
         """Return the number of key-value entries by traversing its buckets.
         TODO: Running time: O(???) Why and under what conditions?"""
-        # TODO: Loop through all buckets
-        # TODO: Count number of key-value entries in each bucket
         # result = 0
         # for bucket in self.buckets:
         #     result += bucket.length()
@@ -72,7 +70,14 @@ class HashTable(object):
         """Return True if this hash table contains the given key, or False.
         TODO: Running time: O(???) Why and under what conditions?"""
         bucket_index = self._bucket_index(key)
-        found = self.buckets[bucket_index].find(key)
+
+        # def callback(item):
+        #     if key == item:
+        #         return True
+        #     return False
+
+        # found = self.buckets[bucket_index].find(callback)
+        found = self.buckets[bucket_index].find(lambda item: key == item)
         return True if found != None else False
 
     def get(self, key):
@@ -82,17 +87,21 @@ class HashTable(object):
             raise KeyError('Key not found: {}'.format(key))
 
         bucket_index = self._bucket_index(key)
-        value = self.buckets[bucket_index].find(key)
+        value = self.buckets[bucket_index].find(lambda item: key == item)
         return value[1] if value != None else raise_error()
 
     def set(self, key, value):
         """Insert or update the given key with its associated value.
         TODO: Running time: O(???) Why and under what conditions?"""
-        # TODO: Find bucket where given key belongs
-        # TODO: Check if key-value entry exists in bucket
-        # TODO: If found, update value associated with given key
-        # TODO: Otherwise, insert given key-value entry into bucket
-
+        bucket_index = self._bucket_index(key)
+        bucket = self.buckets[bucket_index]
+        found = bucket.find(key)
+        if found != None:
+            bucket.delete(found[0], found[1])
+            bucket.append(key, value)
+        else:
+            bucket.append(key, value)
+  
     def delete(self, key):
         """Delete the given key from this hash table, or raise KeyError.
         TODO: Running time: O(???) Why and under what conditions?"""
