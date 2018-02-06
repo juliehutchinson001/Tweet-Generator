@@ -85,7 +85,7 @@ class Linked_list(object):
         # return current_node.data
         # Implementing find with callback (state_qual)
         while current_node is not None:
-            if state_qual(current_node.data):
+            if state_qual(current_node.data[0]):
                 return current_node.data
             
             current_node = current_node.next
