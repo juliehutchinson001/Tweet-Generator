@@ -95,7 +95,7 @@ class HashTable(object):
         TODO: Running time: O(???) Why and under what conditions?"""
         bucket_index = self._bucket_index(key)
         bucket = self.buckets[bucket_index]
-        found = bucket.find(key)
+        found = bucket.find(lambda item: key == item)
         if found != None:
             bucket.delete(found[0], found[1])
             bucket.append(key, value)
