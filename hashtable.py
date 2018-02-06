@@ -83,11 +83,17 @@ class HashTable(object):
     def get(self, key):
         """Return the value associated with the given key, or raise KeyError.
         TODO: Running time: O(???) Why and under what conditions?"""
+        # if value != None:
+        #     return value[1]
+        # else:
+        #     raise KeyError('Key not found: {}'.format(key))
         def raise_error():
             raise KeyError('Key not found: {}'.format(key))
 
         bucket_index = self._bucket_index(key)
         value = self.buckets[bucket_index].find(lambda item: key == item)
+
+        # one liner
         return value[1] if value != None else raise_error()
 
     def set(self, key, value):
@@ -98,9 +104,9 @@ class HashTable(object):
         found = bucket.find(lambda item: key == item)
         if found != None:
             bucket.delete(found[0], found[1])
-            bucket.append(key, value)
+            bucket.append((key, value))
         else:
-            bucket.append(key, value)
+            bucket.append((key, value))
   
     def delete(self, key):
         """Delete the given key from this hash table, or raise KeyError.
