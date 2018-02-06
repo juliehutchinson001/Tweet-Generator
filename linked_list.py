@@ -87,6 +87,7 @@ class Linked_list(object):
     def delete(self, item):
         if self.is_empty():
             raise ValueError('Item not found: {}'.format(item))
+        self.size -= 1
 
         if self.length() == 1:
             self.head = None
@@ -115,35 +116,22 @@ class Linked_list(object):
         previous_node.next = current_node.next
 
 
+def main():
+    # Testing Purposes 
+    node1 = Node('A')
+    node2 = Node('B')
+    node3 = Node('C')
+    ll = Linked_list()
+    print(ll)
+    ll.append(node1)
+    print(ll)
+    ll.append(node2)
+    print(ll)
+    ll.append(node3)
+    print(ll)
+    print(ll.head)
 
-    def items(self):
-    #Return a list (dynamic array) of all items in this linked list.
-    #Best and worst case running time: O(n) for n items in the list (length)
-    #because there is always a need to loop through all n nodes to get each item.
-        items = []
-
-        node = self.head
-
-        while node is not None:
-
-            items.append(node.data)
-
-            node = node.next
-
-        return items
-
-# Testing Purposes 
-node1 = Node('A')
-node2 = Node('B')
-node3 = Node('C')
-ll = Linked_list()
-print(ll)
-ll.append(node1)
-print(ll)
-ll.append(node2)
-print(ll)
-ll.append(node3)
-print(ll)
-print(ll.head)
+if __name__ == '__main__':
+    main()
 
 
