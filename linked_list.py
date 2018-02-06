@@ -12,6 +12,7 @@ class Linked_list(object):
     def __init__(self, items=None):
         self.head = None  # First node
         self.tail = None  # Last node
+        self.size = 0
         if items is not None:
             for item in items:
                 self.append(item)
@@ -43,14 +44,15 @@ class Linked_list(object):
         return False
 
     def length(self):
-        if self.is_empty():
-            return 0
-        current_node = self.head
-        ctr = 1
-        while current_node.next != None:
-            ctr += 1
-            current_node = current_node.next
-        return ctr
+        # if self.is_empty():
+        #     return 0
+        # current_node = self.head
+        # ctr = 1
+        # while current_node.next != None:
+        #     ctr += 1
+        #     current_node = current_node.next
+        # return ctr
+        return self.size
  
     def append(self, item):
         new_node = Node(item)
@@ -60,6 +62,7 @@ class Linked_list(object):
             self.tail.next = new_node
 
         self.tail = new_node
+        self.size += 1
 
     def prepend(self, item):
         new_node = Node(item)
@@ -69,6 +72,8 @@ class Linked_list(object):
             new_node.next = self.head
             self.head = new_node
         self.head = new_node
+        self.size += 1
+
 
     def find(self, state_qual):
         current_node = self.head
