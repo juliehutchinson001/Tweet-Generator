@@ -103,7 +103,7 @@ class HashTable(object):
         bucket = self.buckets[bucket_index]
         found = bucket.find(lambda item: key == item)
         if found != None:
-            bucket.delete(found[0], found[1])
+            bucket.delete((found[0], found[1]))
             bucket.append((key, value))
         else:
             bucket.append((key, value))
@@ -116,7 +116,7 @@ class HashTable(object):
         bucket = self.buckets[bucket_index]
         found = bucket.find(lambda item: key == item)
         if found != None:
-            bucket.delete(found[0], found[1])
+            bucket.delete((found[0], found[1]))
         else:
             raise KeyError('Key not found: {}'.format(key))
 
@@ -141,7 +141,7 @@ def test_hash_table():
     print('length: {}'.format(ht.length()))
 
     # Enable this after implementing delete method
-    delete_implemented = False
+    delete_implemented = True
     if delete_implemented:
         print('\nTesting delete:')
         for key in ['I', 'V', 'X']:
