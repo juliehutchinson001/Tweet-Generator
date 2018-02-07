@@ -1,6 +1,5 @@
 from linked_list import Linked_list
 
-
 class HashTable(object):
 
     def __init__(self, init_size=8):
@@ -70,13 +69,14 @@ class HashTable(object):
         """Return True if this hash table contains the given key, or False.
         TODO: Running time: O(???) Why and under what conditions?"""
         bucket_index = self._bucket_index(key)
-
+        # ------example for callback----------
         # def callback(item):
         #     if key == item:
         #         return True
         #     return False
 
         # found = self.buckets[bucket_index].find(callback)
+        # -------------------------------------
         found = self.buckets[bucket_index].find(lambda item: key == item)
         return True if found != None else False
 
@@ -94,11 +94,13 @@ class HashTable(object):
         value = self.buckets[bucket_index].find(lambda item: key == item)
 
         # one liner
+        # return value[1] if value != None else 'Key not found'
         return value[1] if value != None else raise_error()
 
     def set(self, key, value):
         """Insert or update the given key with its associated value.
         TODO: Running time: O(???) Why and under what conditions?"""
+
         bucket_index = self._bucket_index(key)
         bucket = self.buckets[bucket_index]
         found = bucket.find(lambda item: key == item)
@@ -119,7 +121,6 @@ class HashTable(object):
             bucket.delete((found[0], found[1]))
         else:
             raise KeyError('Key not found: {}'.format(key))
-
 
 
 def test_hash_table():
@@ -155,3 +156,12 @@ def test_hash_table():
 
 if __name__ == '__main__':
     test_hash_table()
+
+    '''
+    Visual representation of a hashtable
+
+    [ [], [], [] ] = ht
+      |   |   |
+      LL  LL  LL
+
+    '''
