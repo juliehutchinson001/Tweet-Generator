@@ -46,8 +46,7 @@ class HashTable(object):
         
 
     def items(self):
-        """Return a list of all items (key-value pairs) in this hash table.
-        TODO: Running time: O(???) Why and under what conditions?"""
+        """Return a list of all items (key-value pairs) in this hash table."""
         # Collect all pairs of key-value entries in each bucket
         all_items = []
         for bucket in self.buckets:
@@ -55,8 +54,7 @@ class HashTable(object):
         return all_items
 
     def length(self):
-        """Return the number of key-value entries by traversing its buckets.
-        TODO: Running time: O(???) Why and under what conditions?"""
+        """Return the number of key-value entries by traversing its buckets."""
         # result = 0
         # for bucket in self.buckets:
         #     result += bucket.length()
@@ -66,8 +64,7 @@ class HashTable(object):
 
 
     def contains(self, key):
-        """Return True if this hash table contains the given key, or False.
-        TODO: Running time: O(???) Why and under what conditions?"""
+        """Return True if this hash table contains the given key, or False."""
         bucket_index = self._bucket_index(key)
         # ------example for callback----------
         # def callback(item):
@@ -81,8 +78,7 @@ class HashTable(object):
         return True if found != None else False
 
     def get(self, key):
-        """Return the value associated with the given key, or raise KeyError.
-        TODO: Running time: O(???) Why and under what conditions?"""
+        """Return the value associated with the given key, or raise KeyError."""
         # if value != None:
         #     return value[1]
         # else:
@@ -98,8 +94,7 @@ class HashTable(object):
         return value[1] if value != None else raise_error()
 
     def set(self, key, value):
-        """Insert or update the given key with its associated value.
-        TODO: Running time: O(???) Why and under what conditions?"""
+        """Insert or update the given key with its associated value."""
 
         bucket_index = self._bucket_index(key)
         bucket = self.buckets[bucket_index]
@@ -111,8 +106,7 @@ class HashTable(object):
             bucket.append((key, value))
   
     def delete(self, key):
-        """Delete the given key from this hash table, or raise KeyError.
-        TODO: Running time: O(???) Why and under what conditions?"""
+        """Delete the given key from this hash table, or raise KeyError."""
 
         bucket_index = self._bucket_index(key)
         bucket = self.buckets[bucket_index]
@@ -155,7 +149,7 @@ def test_hash_table():
 
 
 if __name__ == '__main__':
-    test_hash_table()
+    HashTable(object)
 
     '''
     Visual representation of a hashtable
