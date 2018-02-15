@@ -18,6 +18,12 @@ from stochastic_sampling import get_random_word
 from histogram_dictionary import Histogram
 from markov_words_helper import get_long_words, get_words, get_short_words
 
+#accessing the list of words as string
+# helper_dictionary_words = get_long_words()
+helper_dictionary_words = get_words()
+# helper_dictionary_words = get_short_words()
+
+
 
 
 
