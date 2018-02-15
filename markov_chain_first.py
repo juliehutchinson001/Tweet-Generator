@@ -19,3 +19,24 @@ from histogram_dictionary import Histogram
 from markov_words_helper import get_long_words, get_words, get_short_words
 
 
+
+
+if __name__ == "__main__":
+
+    #corpus = 'one fish two fish three fish four fish red fish blue fish'
+    clean_data = clean_text(get_words())
+
+    histogram = Histogram(clean_data)
+# if you want to return the output of run
+
+
+    # markov_chn_dict = first_order_markov(get_long_words())
+    markov_chn_dict = first_order_markov(clean_data)
+    # markov_chn_dict = first_order_markov(get_short_words())
+
+
+    print(tweet_generator(100, markov_chn_dict))
+
+
+
+
