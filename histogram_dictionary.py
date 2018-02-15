@@ -3,9 +3,13 @@ Visualizing histogram.
 original_str = 'one fish two fish three fish four fish'
 dict_histogram_of_original_str = {one: 1, fish: 4, two: 1, three: 1, four: 1}
 """
-class Histogram():
+from markov_words_helper import get_long_words, get_words, get_short_words
 
-    def __init__(self, str_words: str) -> None:
+
+class Histogram():
+    
+
+    def __init__(self, str_words) -> None:
         """Initialize histogram with words given"""
         self.str_words = str_words
         self.histogram = self.get_histogram()
@@ -57,17 +61,24 @@ class Histogram():
 
 def main():
     #sample string
-    str_words = 'one fish two fish three fish four fish'
+    # str_words = 'one fish two fish three fish four fish'
+
+    #accessing the list of words as string
+    # helper_dictionary_words = get_long_words()
+    helper_dictionary_words = get_words()
+    # helper_dictionary_words = get_short_words()
 
     #calling function histogram with sample string
-    histogram = Histogram(str_words)
+    # histogram = Histogram(get_long_words())
+    histogram = Histogram(helper_dictionary_words)
+    # histogram = Histogram(get_short_words())
 
     #calling function frequency with histogram output as dict argument
-    histogram_freq = histogram.get_frequency('fish')
+    histogram_freq = histogram.get_frequency('Alice')
 
-    print('Fish tokens: ', histogram_freq)
+    print('Alice tokens: ', histogram_freq)
     print('Total amount of types: ', histogram.get_unique_words())
-    print('Fish should be 50%: ', histogram.get_frequency('fish') / sum(histogram.histogram.values()))
+    print('Alice should be: ', histogram.get_frequency('Alice') / sum(histogram.histogram.values()))
 
 
 if __name__ == "__main__":
