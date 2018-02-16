@@ -12,3 +12,7 @@ def get_words():
 
     return dictionary_words
 
+def get_short_words():
+    corpus = 'one fish two fish three fish four fish red fish blue fish'
+
+    return corpus
