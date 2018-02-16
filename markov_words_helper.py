@@ -5,3 +5,10 @@ def get_long_words():
 
     return dictionary_long_words
 
+def get_words():
+    dictionary_words = ''
+    with open('short_version.txt') as dictionary_file:
+        dictionary_words += dictionary_file.read().replace('\n', ' ')
+
+    return dictionary_words
+
