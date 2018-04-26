@@ -3,8 +3,6 @@ Visualizing histogram.
 original_str = 'one fish two fish three fish four fish'
 dict_histogram_of_original_str = {one: 1, fish: 4, two: 1, three: 1, four: 1}
 """
-from markov_words_helper import get_long_words, get_words, get_short_words
-
 
 class Histogram():
     
@@ -64,13 +62,13 @@ def main():
     # str_words = 'one fish two fish three fish four fish'
 
     #accessing the list of words as string
-    # helper_dictionary_words = get_long_words()
-    helper_dictionary_words = get_words()
+    helper_dictionary_words = get_long_words()
+    # helper_dictionary_words = get_words()
     # helper_dictionary_words = get_short_words()
 
     #calling function histogram with sample string
-    # histogram = Histogram(get_long_words())
-    histogram = Histogram(helper_dictionary_words)
+    histogram = Histogram(get_long_words())
+    # histogram = Histogram(helper_dictionary_words)
     # histogram = Histogram(get_short_words())
 
     #calling function frequency with histogram output as dict argument
