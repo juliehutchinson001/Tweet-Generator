@@ -27,20 +27,20 @@ class Linked_list(object):
     def items(self):
         items = []
 
-        node = self.head  
+        node = self.head
 
-        while node != None: 
+        while node != None:
 
             items.append(node.data)
 
-            node = node.next  
+            node = node.next
 
-        return items  
+        return items
 
     def is_empty(self):
         if self.head is None:
             return True
-        
+
         return False
 
     def length(self):
@@ -53,7 +53,7 @@ class Linked_list(object):
         #     current_node = current_node.next
         # return ctr
         return self.size
- 
+
     def append(self, item):
         new_node = Node(item)
         if self.is_empty():
@@ -74,7 +74,6 @@ class Linked_list(object):
         self.head = new_node
         self.size += 1
 
-
     def find(self, state_qual):
         current_node = self.head
 
@@ -87,7 +86,7 @@ class Linked_list(object):
         while current_node is not None:
             if state_qual(current_node.data[0]):
                 return current_node.data
-            
+
             current_node = current_node.next
 
         return None
@@ -110,7 +109,7 @@ class Linked_list(object):
 
             if current_node is None:
                 raise ValueError('Item not found: {}'.format(item))
-        
+
         if current_node == self.head:
             self.head = current_node.next
             return
@@ -125,7 +124,7 @@ class Linked_list(object):
 
 
 def main():
-    # Testing Purposes 
+    # Testing Purposes
     node1 = Node('A')
     node2 = Node('B')
     node3 = Node('C')
@@ -139,7 +138,6 @@ def main():
     print(ll)
     print(ll.head)
 
+
 if __name__ == '__main__':
     main()
-
-
