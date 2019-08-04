@@ -1,4 +1,3 @@
-
 import random
 import re
 import string
@@ -28,11 +27,11 @@ def first_order_markov(str_words):
                 markov_dict[token_key][next_token] = 1
             else:
                 markov_dict[token_key][next_token] += 1
-    
+
     return markov_dict
 
 def tweet_generator(order, markov_dict):
-    
+
     final_sentence = ''
 
     counter = 0
@@ -41,20 +40,20 @@ def tweet_generator(order, markov_dict):
 
     #returns to me a random word from the previous list
     first_word = random.choice(list_of_words)
-    
+
     #loop to attach my random words to sentence
     while counter != order:
 
         #call my random_word function from my stochastic sampling
         #and index that to my random word
         random_word_sentence = get_random_word(markov_dict[first_word])
-        
+
         first_word = random_word_sentence
 
         #append to my sentence string
-        final_sentence += random_word_sentence 
-        
-        sentence = ''.join(final_sentence) 
+        final_sentence += random_word_sentence
+
+        sentence = ''.join(final_sentence)
 
         counter += 1
 
@@ -62,7 +61,7 @@ def tweet_generator(order, markov_dict):
     remove_even_more = re.sub("'", ' ', remove_more)
     # print(remove_even_more)
     # print("test: " + sentence[0])
-    
+
     return remove_even_more.strip()
     # return final_sentence
 
@@ -73,7 +72,7 @@ if __name__ == "__main__":
 
     markov_chn_dict = first_order_markov(clean_data)
 
-    print(tweet_generator(10, markov_chn_dict))
+    print(tweet_generator(30, markov_chn_dict))
 
 
 
