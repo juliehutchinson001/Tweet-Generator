@@ -1,5 +1,6 @@
 from linked_list import Linked_list
 
+
 class HashTable(object):
 
     def __init__(self, init_size=8):
@@ -28,7 +29,7 @@ class HashTable(object):
         # Collect all keys in each bucket
         all_keys = []
         for bucket in self.buckets:
-            for key, value in bucket.items():
+            for key, _ in bucket.items():
 
                 all_keys.append(key)
         return all_keys
@@ -38,11 +39,10 @@ class HashTable(object):
         Running time: O(BL) Why and under what conditions?"""
         all_values = []
         for bucket in self.buckets:
-            for key, value in bucket.items():
+            for _, value in bucket.items():
 
                 all_values.append(value)
         return all_values
-        
 
     def items(self):
         """Return a list of all items (key-value pairs) in this hash table."""
@@ -59,8 +59,6 @@ class HashTable(object):
         #     result += bucket.length()
 
         return sum([bucket.length() for bucket in self.buckets])
-        
-
 
     def contains(self, key):
         """Return True if this hash table contains the given key, or False."""
@@ -103,7 +101,7 @@ class HashTable(object):
             bucket.append((key, value))
         else:
             bucket.append((key, value))
-  
+
     def delete(self, key):
         """Delete the given key from this hash table, or raise KeyError."""
 
